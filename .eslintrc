@@ -15,7 +15,6 @@
     "indent": ["error", 2],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
-    "no-unused-vars": ["error"],
     "no-console": "warn",
     "no-undef": "off",
     "no-func-assign": 1,
