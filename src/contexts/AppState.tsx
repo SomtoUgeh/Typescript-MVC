@@ -1,5 +1,10 @@
 import React, { useState, createContext } from "react";
 
+export interface Todo {
+  id: string;
+  todo: string;
+  completed: boolean;
+}
 export interface AppStateInterface {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
@@ -7,12 +12,6 @@ export interface AppStateInterface {
 
 interface Props {
   children: JSX.Element;
-}
-
-export interface Todo {
-  id: string;
-  todo: string;
-  completed: boolean;
 }
 
 export const AppStateContext = createContext<AppStateInterface>({} as AppStateInterface);

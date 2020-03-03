@@ -5,7 +5,7 @@ import { Todo, AppStateContext } from "contexts/AppState";
 
 const TextInput: React.FC = () => {
   const [value, setValue] = useState<string>("");
-  const { todos, setTodos } = useContext(AppStateContext);
+  const { setTodos } = useContext(AppStateContext);
 
   const addTodo = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "Enter" && value.trim().length > 0) {
@@ -35,8 +35,6 @@ const TextInput: React.FC = () => {
           onChange={({ target: { value } }) => setValue(value)}
         />
       </header>
-
-      {JSON.stringify(todos, null, 2)}
     </Container>
   );
 };

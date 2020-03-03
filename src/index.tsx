@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import AppBase from "components";
 import * as serviceWorker from "./serviceWorker";
 import AppStateContextProvider from "contexts/AppState";
 
 const MyApp = () => (
   <AppStateContextProvider>
-    <App />
+    <AppBase />
   </AppStateContextProvider>
 );
 
