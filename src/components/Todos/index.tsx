@@ -1,11 +1,12 @@
 import React from "react";
 import Item from "./Item";
+import { Routes } from "index";
 import { Container } from "./style";
 import { Todo } from "contexts/AppState";
 
 interface Props {
+  path: Routes;
   todos: Todo[];
-  path?: string;
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 

@@ -1,17 +1,30 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import "./index.css";
 import AppBase from "components";
+import { Router } from "@reach/router";
 import * as serviceWorker from "./serviceWorker";
 import AppStateContextProvider from "contexts/AppState";
 
+export type Routes = "/" | "/active" | "/completed";
+
+interface Props {
+  path: Routes;
+}
+
+const Controller: React.FC<Props> = ({ path }) => <AppBase path={path} />;
+
 const MyApp = () => (
   <AppStateContextProvider>
-    <AppBase />
+    <Router>
+      <Controller path="/" />
+      <Controller path="/active" />
+      <Controller path="/completed" />
+    </Router>
   </AppStateContextProvider>
 );
 
-ReactDOM.render(<MyApp />, document.getElementById("root"));
+render(<MyApp />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -5,6 +5,7 @@ export interface Todo {
   todo: string;
   completed: boolean;
 }
+
 export interface AppStateInterface {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;

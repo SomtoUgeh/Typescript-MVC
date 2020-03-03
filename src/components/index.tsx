@@ -1,12 +1,24 @@
 import React, { useContext } from "react";
+import Menu from "./Menu";
 import Todos from "./Todos";
 import Footer from "./Footer";
+import { Routes } from "index";
 import TextInput from "./TextInput";
 import { Container } from "./styles";
 import { AppStateContext } from "contexts/AppState";
 
-const AppBase: React.FC = () => {
+interface Props {
+  path: Routes;
+}
+
+const AppBase: React.FC<Props> = ({ path }) => {
   const { todos, setTodos } = useContext(AppStateContext);
+
+  const todoProps = {
+    todos,
+    setTodos,
+    path
+  };
 
   return (
     <Container>
@@ -14,7 +26,12 @@ const AppBase: React.FC = () => {
         <TextInput />
       </section>
 
-      {todos.length ? <Todos todos={todos} setTodos={setTodos} /> : null}
+      {todos.length ? (
+        <>
+          <Todos {...todoProps} />
+          <Menu path={path} />
+        </>
+      ) : null}
       <Footer />
     </Container>
   );
